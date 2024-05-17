@@ -1,5 +1,7 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
 
+import Link from "@/components/element/Link";
+
 export const meta: MetaFunction = () => {
   return [
     { title: "Resas View" },
@@ -26,9 +28,7 @@ export default function Index() {
           </a>
         </li>
         <li>
-          <a href="https://remix.run/docs" rel="noreferrer" target="_blank">
-            Remix Docs
-          </a>
+          <Link to="https://remix.run/docs">Remix Docs</Link>
         </li>
         <li>hogehoge hugahuga</li>
       </ul>
