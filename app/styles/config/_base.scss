@@ -1,0 +1,12 @@
+@use "./mixins" as mix;
+
+@mixin base-css {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @supports (text-size-adjust: 100%) {
+    text-size-adjust: 100%;
+  }
+
+  @include mix.smooth-scroll;
+}

@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@use "./config/base" as base;
+
+/* stylelint-disable-next-line selector-no-qualifying-type */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  color: #333;
+  background-color: #fff;
+
+  @supports (min-height: 100dvh) {
+    min-height: 100dvh;
+  }
+
+  @include base.base-css;
+}
+
+* {
+  letter-spacing: 0.1em;
+}

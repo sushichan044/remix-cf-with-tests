@@ -1,0 +1,92 @@
+@use "sass:meta";
+@use "sass:map";
+
+$breakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "2xl": 1536px,
+);
+
+@mixin mq($size, $range: min) {
+  @media screen and (#{$range}-width: #{map.get($breakpoints, $size)}) {
+    @content;
+  }
+}
+
+@mixin scheme($scheme) {
+  @media screen and (prefers-color-scheme: #{$scheme}) {
+    @content;
+  }
+}
+
+@mixin reduce-motion {
+  @media screen and (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin hocus {
+  &:focus-visible {
+    @content;
+  }
+
+  @media (any-hover: hover) {
+    /* stylelint-disable-next-line a11y/selector-pseudo-class-focus */
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin line-clamp($count: 3) {
+  // 引数が数値以外だったらエラーを返す
+  @if meta.type-of($count) != "number" {
+    @error 'line-clampの引数は必ず数値で指定してください';
+  }
+
+  @if $count == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@mixin smooth-scroll {
+  scroll-behavior: smooth;
+
+  @include reduce-motion {
+    scroll-behavior: auto;
+  }
+}
+
+@mixin user-invalid {
+  &:invalid {
+    @content;
+  }
+
+  @supports selector(:user-invalid) {
+    &:user-invalid {
+      @content;
+    }
+  }
+}
+
+@mixin user-valid {
+  &:valid {
+    @content;
+  }
+
+  @supports selector(:user-valid) {
+    &:user-valid {
+      @content;
+    }
+  }
+}
