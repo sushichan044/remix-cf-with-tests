@@ -23,12 +23,12 @@
     "test:e2e": "pnpm exec playwright test"
   },
   "dependencies": {
-    "@remix-run/node": "^2.9.2",
+    "@remix-run/cloudflare": "^2.9.2",
+    "@remix-run/cloudflare-pages": "^2.9.2",
     "@remix-run/react": "^2.9.2",
-    "@remix-run/server-runtime": "^2.9.2",
-    "@vercel/remix": "2.9.2-patch.2",
     "clsx": "^2.1.1",
     "isbot": "^4.4.0",
+    "miniflare": "^3.20240512.0",
     "react": "19.0.0-rc-915b914b3a-20240515",
     "react-dom": "19.0.0-rc-915b914b3a-20240515",
     "tailwind-merge": "^2.3.0",
@@ -39,6 +39,7 @@
     "react-dom": "19.0.0-rc-915b914b3a-20240515"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240512.0",
     "@double-great/stylelint-a11y": "^3.0.2",
     "@playwright/test": "^1.44.0",
     "@remix-run/dev": "^2.9.2",
@@ -69,7 +70,8 @@
     "typescript-eslint": "^7.9.0",
     "vite": "^5.2.11",
     "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.0",
+    "wrangler": "^3.57.0"
   },
   "engines": {
     "node": ">=20 <21"

@@ -1,7 +1,11 @@
 {
   "extends": "@virtual-live-lab/tsconfig/remix",
   "compilerOptions": {
-    "types": ["@vercel/remix", "vite/client"],
+    "types": [
+      "@remix-run/cloudflare",
+      "vite/client",
+      "@cloudflare/workers-types"
+    ],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./app/*"]

@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@vercel/remix";
+import type { MetaFunction } from "@remix-run/cloudflare";
 
 export const meta: MetaFunction = () => {
   return [

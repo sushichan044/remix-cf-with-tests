@@ -1,16 +1,15 @@
 /// <reference types="vitest" />
 
-import { vitePlugin as remix } from "@remix-run/dev";
-import { installGlobals } from "@remix-run/node";
-import { vercelPreset } from "@vercel/remix/vite";
+import {
+  vitePlugin as remix,
+  cloudflareDevProxyVitePlugin as remixCloudflareDevProxy,
+} from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { configDefaults } from "vitest/config";
 
-installGlobals();
-
 export default defineConfig({
-  plugins: [remix({ presets: [vercelPreset()] }), tsconfigPaths()],
+  plugins: [remixCloudflareDevProxy(), remix(), tsconfigPaths()],
   server: {
     host: true,
   },
