@@ -17,15 +17,15 @@ pre-commit:
   commands:
     tsc:
       glob: "*.{ts,tsx}"
-      run: pnpm run check:tsc {staged_files}
+      run: pnpm run staged:tsc {staged_files}
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
-      run: pnpm run check:eslint {staged_files}
+      run: pnpm run staged:eslint {staged_files}
     prettier:
-      run: pnpm run check:prettier {staged_files}
+      run: pnpm run staged:prettier {staged_files}
     stylelint:
       glob: "*.{css,scss}"
-      run: pnpm run check:stylelint {staged_files}
+      run: pnpm run staged:stylelint {staged_files}
   # scripts:
   #   "hello.js":
   #     runner: node
