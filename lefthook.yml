@@ -26,11 +26,6 @@ pre-commit:
     stylelint:
       glob: "*.{css,scss}"
       run: pnpm run check:stylelint {staged_files}
-    rubocop:
-      tags: backend style
-      glob: "*.rb"
-      exclude: '(^|/)(application|routes)\.rb$'
-      run: bundle exec rubocop --force-exclusion {all_files}
   # scripts:
   #   "hello.js":
   #     runner: node
