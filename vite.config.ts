@@ -15,6 +15,6 @@ export default defineConfig({
   },
   test: {
     environment: "happy-dom",
-    exclude: [...configDefaults.exclude, "**/e2e/**/*"],
+    exclude: [...configDefaults.exclude, "**/e2e/**/*", "**/*.test.{j,t}sx"],
   },
 });
