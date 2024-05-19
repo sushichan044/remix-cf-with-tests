@@ -1,6 +1,7 @@
 {
   "extends": "@virtual-live-lab/tsconfig/remix",
   "compilerOptions": {
+    "noEmit": true,
     "types": [
       "@remix-run/cloudflare",
       "vite/client",

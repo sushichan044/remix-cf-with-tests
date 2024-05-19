@@ -13,8 +13,9 @@ const formatProp = ({
 }: FormatPropArg): FormatPropReturn => {
   if (typeof to !== "string" || isInternalLink(to, origin))
     return { rel, target };
+
   return {
-    rel: "noopener noreferrer" + (rel ? ` ${rel}` : ""),
+    rel: "noopener noreferrer" + (rel ?? "" ? ` ${rel}` : ""),
     target: "_blank",
   };
 };
