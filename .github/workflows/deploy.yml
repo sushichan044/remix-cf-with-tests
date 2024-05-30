@@ -42,7 +42,6 @@ jobs:
         run: pnpm run test
 
   e2e-test:
-    needs: check-and-test
     timeout-minutes: 60
     runs-on: ubuntu-22.04
     steps:
@@ -78,7 +77,9 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    needs: e2e-test
+    needs:
+      - check-and-test
+      - e2e-test
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
