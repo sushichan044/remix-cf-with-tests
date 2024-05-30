@@ -16,6 +16,7 @@ export default defineConfig({
   test: {
     environment: "happy-dom",
     exclude: [...configDefaults.exclude, "**/e2e/**/*", "**/*.test.{j,t}sx"],
+    pool: "forks",
     reporters: ["default", "hanging-process"],
   },
 });
